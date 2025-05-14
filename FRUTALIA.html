@@ -1,0 +1,152 @@
+<!-- ESTRUCTURA HTML BÁSICA DE FRUTALIA -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frutalia - Pedido de Jugos</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fffbe7, #ffe1e1);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 5px solid #fcd34d;
+    }
+
+    h1 {
+      text-align: center;
+      color: #e11d48;
+      font-size: 2.5rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #16a34a;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border-radius: 10px;
+      border: 2px solid #a3e635;
+      background-color: #f0fdf4;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      background-color: #f97316;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border: none;
+      padding: 0.8rem;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ea580c;
+    }
+
+    #mensajeConfirmacion {
+      margin-top: 1.5rem;
+      color: #22c55e;
+      font-weight: bold;
+      text-align: center;
+      display: none;
+    }
+
+    .oculto {
+      display: none;
+    }
+
+    h2 {
+      margin-top: 3rem;
+      color: #10b981;
+      text-align: center;
+    }
+
+    #tablaPedidos {
+      margin-top: 1rem;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #d4d4d8;
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: #facc15;
+      color: #1f2937;
+    }
+  </style>
+  <script>
+    const URL_WEB_APP = "https://script.google.com/macros/s/AKfycbxSlbafSK9-BkH-uBias89Nh7nBP_d0pItqyoXIfDaugeCZZ8ns6Dsch40zwQF8W0wPwQ/exec";
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Frutalia</h1>
+    <p style="text-align: center; color: #7c3aed; font-size: 1.2rem;">Haz tu pedido y recógelo en 10 minutos</p>
+
+    <form id="pedidoForm">
+      <label for="nombre">Nombre del cliente</label>
+      <input type="text" id="nombre" name="Nombre del cliente" required>
+
+      <label for="telefono">Teléfono</label>
+      <input type="tel" id="telefono" name="Teléfono" required>
+
+      <label for="sabor">Sabor del jugo</label>
+      <select id="sabor" name="Sabor del jugo" required>
+        <option value="naranja">Naranja</option>
+        <option value="mango">Mango</option>
+        <option value="fresa">Fresa</option>
+        <option value="piña">Piña</option>
+      </select>
+
+      <label for="tamano">Tamaño</label>
+      <select id="tamano" name="Tamaño" required>
+        <option value="chico">Chico</option>
+        <option value="mediano">Mediano</option>
+        <option value="grande">Grande</option>
+      </select>
+
+      <label for="comentarios">Comentarios adicionales</label>
+      <textarea id="comentarios" name="Comentarios adicionales" rows="3"></textarea>
+
+      <button type="submit">Enviar Pedido</button>
+    </form>
+
+    <p id="mensajeConfirmacion">Tu pedido ha sido enviado con éxito, pasa a recogerlo en 10 minutos. ¡Frutalia agradece tu preferencia!</p>
+
+    <h2>Pedidos Registrados</h2>
+    <div id="tablaPedidos"></div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
